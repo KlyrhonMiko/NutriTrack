@@ -342,7 +342,7 @@ public class ProgressFragment extends Fragment {
         List<Entry> entries = new ArrayList<>();
         List<Entry> goalEntries = new ArrayList<>();
         
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.getDefault());
         final List<String> xAxisLabels = new ArrayList<>();
         
         for (int i = 0; i < dailyTotals.size(); i++) {
@@ -387,7 +387,7 @@ public class ProgressFragment extends Fragment {
     private void updateWeightChart(List<ProgressViewModel.WeightEntry> weightEntries) {
         List<Entry> entries = new ArrayList<>();
         
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.getDefault());
         final List<String> xAxisLabels = new ArrayList<>();
         
         for (int i = 0; i < weightEntries.size(); i++) {

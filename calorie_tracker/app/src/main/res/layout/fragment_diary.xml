@@ -354,7 +354,7 @@
                         android:layout_marginEnd="12dp"
                         app:trackThickness="8dp"
                         app:trackCornerRadius="4dp"
-                        app:indicatorColor="#2E7D32"
+                        app:indicatorColor="#E91E63"
                         app:trackColor="@color/progress_background"
                         app:layout_constraintTop_toTopOf="@id/fatLabel"
                         app:layout_constraintBottom_toBottomOf="@id/fatLabel"
@@ -368,7 +368,7 @@
                         android:text="25/65g"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        android:textColor="#2E7D32"
+                        android:textColor="#E91E63"
                         app:layout_constraintTop_toTopOf="@id/fatLabel"
                         app:layout_constraintEnd_toEndOf="parent" />
 
