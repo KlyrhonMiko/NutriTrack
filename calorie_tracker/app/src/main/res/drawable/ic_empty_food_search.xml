@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
+    
+    <!-- Food plate (circle) -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M480,180C313.73,180 180,313.73 180,480C180,646.27 313.73,780 480,780C646.27,780 780,646.27 780,480C780,313.73 646.27,180 480,180ZM480,720C346.92,720 240,613.08 240,480C240,346.92 346.92,240 480,240C613.08,240 720,346.92 720,480C720,613.08 613.08,720 480,720Z"/>
+    
+    <!-- Magnifying glass handle -->
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M721.21,659.79L659.79,721.21L860.59,922.01C879.37,940.79 909.63,940.79 928.41,922.01C947.2,903.22 947.2,872.97 928.41,854.18L721.21,659.79Z"/>
+    
+    <!-- Magnifying glass lens -->
+    <path
+        android:fillColor="@color/primary_very_light"
+        android:pathData="M480,300C368.97,300 280,388.97 280,500C280,611.03 368.97,700 480,700C591.03,700 680,611.03 680,500C680,388.97 591.03,300 480,300ZM480,640C402.75,640 340,577.25 340,500C340,422.75 402.75,360 480,360C557.25,360 620,422.75 620,500C620,577.25 557.25,640 480,640Z"/>
+    
+    <!-- Apple icon -->
+    <path
+        android:fillColor="#FF6D00"
+        android:pathData="M480,400C435,400 400,435 400,480C400,525 435,560 480,560C525,560 560,525 560,480C560,435 525,400 480,400Z"/>
+    
+    <!-- Apple leaf -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M500,400L510,380C520,360 550,370 550,400L530,410C510,420 505,410 500,400Z"/>
+</vector> 

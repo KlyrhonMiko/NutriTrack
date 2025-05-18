@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base gradient background -->
+    <item>
+        <shape>
+            <gradient
+                android:angle="135"
+                android:startColor="@color/primary_dark"
+                android:centerColor="@color/primary"
+                android:endColor="@color/primary_light"
+                android:type="linear" />
+            <corners
+                android:bottomLeftRadius="40dp"
+                android:bottomRightRadius="40dp" />
+        </shape>
+    </item>
+    
+    <!-- Decorative wave pattern overlay -->
+    <item android:bottom="20dp">
+        <shape>
+            <solid android:color="#22FFFFFF" />
+            <corners
+                android:bottomLeftRadius="80dp"
+                android:bottomRightRadius="60dp" />
+        </shape>
+    </item>
+    
+    <!-- Top left accent circle -->
+    <item 
+        android:left="20dp"
+        android:top="20dp"
+        android:width="80dp"
+        android:height="80dp">
+        <shape android:shape="oval">
+            <solid android:color="#15FFFFFF" />
+        </shape>
+    </item>
+    
+    <!-- Top right accent circle -->
+    <item 
+        android:right="30dp"
+        android:top="15dp"
+        android:width="60dp"
+        android:height="60dp">
+        <shape android:shape="oval">
+            <solid android:color="#18FFFFFF" />
+        </shape>
+    </item>
+    
+    <!-- Small accent circle -->
+    <item 
+        android:right="70dp"
+        android:top="90dp"
+        android:width="30dp"
+        android:height="30dp">
+        <shape android:shape="oval">
+            <solid android:color="#33FFFFFF" />
+        </shape>
+    </item>
+    
+    <!-- Small accent circle 2 -->
+    <item 
+        android:left="60dp"
+        android:top="60dp"
+        android:width="25dp"
+        android:height="25dp">
+        <shape android:shape="oval">
+            <solid android:color="#22FFFFFF" />
+        </shape>
+    </item>
+    
+    <!-- Bottom decorative curve -->
+    <item android:bottom="0dp" android:gravity="bottom">
+        <shape>
+            <size android:height="40dp" />
+            <corners android:radius="100dp" />
+            <solid android:color="#15FFFFFF" />
+        </shape>
+    </item>
+</layer-list> 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NutriTrack</string>
+    
+    <!-- Navigation Labels -->
+    <string name="nav_diary">Diary</string>
+    <string name="nav_food">Foods</string>
+    <string name="nav_progress">Progress</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Meal Types -->
+    <string name="meal_breakfast">Breakfast</string>
+    <string name="meal_lunch">Lunch</string>
+    <string name="meal_dinner">Dinner</string>
+    <string name="meal_snack">Snack</string>
+    
+    <!-- Food Diary -->
+    <string name="diary_title">Food Diary</string>
+    <string name="diary_add_food">Add Food</string>
+    <string name="diary_date">Date</string>
+    <string name="diary_calories_remaining">Remaining: %1$d cal</string>
+    <string name="diary_calories_consumed">Consumed: %1$d cal</string>
+    <string name="diary_calories_goal">Goal: %1$d cal</string>
+    
+    <!-- Food Database -->
+    <string name="food_search">Search Foods</string>
+    <string name="food_add_new">Add New Food</string>
+    <string name="food_recent">All Foods</string>
+    <string name="food_favorites">Favorite Foods</string>
+    <string name="food_serving">Serving Size</string>
+    <string name="food_calories">Calories</string>
+    <string name="food_protein">Protein</string>
+    <string name="food_carbs">Carbohydrates</string>
+    <string name="food_fat">Fat</string>
+    <string name="food_fiber">Fiber</string>
+    <string name="food_sugar">Sugar</string>
+    
+    <!-- Progress -->
+    <string name="progress_weight">Weight</string>
+    <string name="progress_calories">Calories</string>
+    <string name="progress_week">Week</string>
+    <string name="progress_month">Month</string>
+    <string name="progress_all">All</string>
+    <string name="progress_add_weight">Add Weight</string>
+    <string name="progress_calories_summary">Calorie Progress</string>
+    <string name="progress_weight_summary">Weight Progress</string>
+    <string name="progress_no_calorie_data">No calorie data available</string>
+    <string name="progress_no_weight_data">No weight data available</string>
+    <string name="progress_current">Current</string>
+    <string name="progress_start">Start</string>
+    <string name="progress_change">Change</string>
+    <string name="progress_add_title">Add Progress Entry</string>
+    <string name="progress_select_date">Select date</string>
+    <string name="progress_track_message">Track your weight progress over time</string>
+    <string name="progress_weight_placeholder">Weight (kg)</string>
+    <string name="progress_date_placeholder">Date</string>
+    <string name="progress_weight_error">Please enter a weight value</string>
+    <string name="progress_date_future_error">Date cannot be in the future</string>
+    <string name="progress_weight_format_error">Please enter a valid weight value</string>
+    <string name="progress_notes_placeholder">Notes (optional)</string>
+    <string name="progress_weight_entry_updated">Updated existing weight entry for %1$s</string>
+    <string name="progress_last_week">Last 7 Days</string>
+    <string name="progress_last_month">Last 30 Days</string>
+    <string name="progress_all_time">All Time</string>
+    <string name="progress_calories_chart_title">Calorie Intake - %1$s</string>
+    <string name="progress_weight_chart_title">Weight Trend - %1$s</string>
+    
+    <!-- Profile -->
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_age">Age</string>
+    <string name="profile_gender">Gender</string>
+    <string name="profile_height">Height</string>
+    <string name="profile_weight">Weight</string>
+    <string name="profile_weight_short">Weight</string>
+    <string name="profile_activity_level">Activity Level</string>
+    <string name="profile_target_weight">Target Weight</string>
+    <string name="profile_weight_goal_type">Weight Goal Type</string>
+    <string name="weight_goal_lose">Lose</string>
+    <string name="weight_goal_maintain">Maintain</string>
+    <string name="weight_goal_gain">Gain</string>
+    <string name="weight_goal_section">Weight Goal Type</string>
+    <string name="profile_goal">Calorie Target</string>
+    <string name="profile_goal_unit">kcal/day</string>
+    <string name="profile_weight_goal">Weight Goal</string>
+    
+    <!-- Activity Levels (Full descriptions) -->
+    <string name="activity_sedentary">Sedentary (little or no exercise)</string>
+    <string name="activity_light">Lightly active (light exercise 1–3 days/week)</string>
+    <string name="activity_moderate">Moderately active (moderate exercise 3–5 days/week)</string>
+    <string name="activity_very">Very active (hard exercise 6–7 days/week)</string>
+    <string name="activity_extra">Extra active (very hard exercise &amp; physical job)</string>
+    
+    <!-- Activity Levels (Short versions for profile display) -->
+    <string name="activity_sedentary_short">Sedentary</string>
+    <string name="activity_light_short">Lightly active</string>
+    <string name="activity_moderate_short">Moderately active</string>
+    <string name="activity_very_short">Very active</string>
+    <string name="activity_extra_short">Extra active</string>
+    
+    <!-- Buttons -->
+    <string name="button_save">Save Profile</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_add">Add</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+</resources>

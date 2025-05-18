@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/onboarding_background"
+    android:fillViewport="true"
+    tools:context=".OnboardingActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <View
+            android:id="@+id/topDecorativeShape"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/onboarding_header_bg"
+            app:layout_constraintHeight_percent="0.36"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcomeHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/notch_padding"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:text="NutriTrack"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:alpha="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcomeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:gravity="center"
+            android:text="Welcome to NutriTrack"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/welcomeHeading" />
+
+        <TextView
+            android:id="@+id/welcomeSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginHorizontal="@dimen/spacing_xlarge"
+            android:gravity="center"
+            android:text="Let's set up your profile to get started"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeTitle" />
+
+        <LinearLayout
+            android:id="@+id/bannerIconsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/spacing_medium"
+            app:layout_constraintTop_toBottomOf="@id/welcomeSubtitle">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_activity"
+                android:tint="@color/white"
+                android:alpha="0.8"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_height"
+                android:tint="@color/white"
+                android:alpha="0.8"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_weight"
+                android:tint="@color/white"
+                android:alpha="0.8"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_goal"
+                android:tint="@color/white"
+                android:alpha="0.8"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_person"
+                android:tint="@color/white"
+                android:alpha="0.8"
+                android:layout_marginHorizontal="@dimen/spacing_medium"
+                android:contentDescription="@null" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profileCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginHorizontal="@dimen/spacing_large"
+            app:cardBackgroundColor="@color/onboarding_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintTop_toBottomOf="@id/bannerIconsContainer">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Personal Information"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/profile_name"
+                    app:boxStrokeColor="@color/primary"
+                    app:hintTextColor="@color/primary"
+                    app:startIconDrawable="@drawable/ic_person"
+                    app:startIconTint="@color/primary"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/profile_age"
+                    app:boxStrokeColor="@color/primary"
+                    app:hintTextColor="@color/primary"
+                    app:startIconDrawable="@drawable/ic_calendar"
+                    app:startIconTint="@color/primary"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ageEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_gender"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"/>
+
+                <RadioGroup
+                    android:id="@+id/genderRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/radio_group_background"
+                    android:padding="4dp">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioMale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Male"
+                        android:textColor="@color/gender_text_selector"
+                        android:drawableTop="@drawable/ic_male"
+                        android:drawableTint="@color/gender_text_selector"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:button="@null"
+                        android:background="@drawable/gender_selector"
+                        android:paddingVertical="12dp"
+                        android:layout_margin="4dp"
+                        app:buttonTint="@color/primary" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gender_tab_separator"
+                        android:layout_marginVertical="8dp" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioFemale"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Female"
+                        android:textColor="@color/gender_text_selector"
+                        android:drawableTop="@drawable/ic_female"
+                        android:drawableTint="@color/gender_text_selector"
+                        android:drawablePadding="8dp"
+                        android:gravity="center"
+                        android:button="@null"
+                        android:background="@drawable/gender_selector"
+                        android:paddingVertical="12dp"
+                        android:layout_margin="4dp"
+                        app:buttonTint="@color/primary" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Body Measurements"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:hint="@string/profile_height"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary"
+                        app:startIconDrawable="@drawable/ic_height"
+                        app:startIconTint="@color/primary"
+                        app:suffixText="cm"
+                        app:suffixTextAppearance="@style/SuffixTextAppearance"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/heightEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:paddingEnd="8dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/profile_weight"
+                        app:boxStrokeColor="@color/primary"
+                        app:hintTextColor="@color/primary"
+                        app:startIconDrawable="@drawable/ic_weight"
+                        app:startIconTint="@color/primary"
+                        app:suffixText="kg"
+                        app:suffixTextAppearance="@style/SuffixTextAppearance"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/weightEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:paddingEnd="8dp"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_activity_level"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    app:boxStrokeColor="@color/primary"
+                    app:startIconDrawable="@drawable/ic_activity"
+                    app:startIconTint="@color/primary"
+                    app:hintTextColor="@color/primary"
+                    android:hint="@string/profile_activity_level">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/activityLevelDropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textSize="16sp"
+                        android:paddingVertical="16dp"
+                        android:text="Select your activity level"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight_goal_section"
+                    android:textColor="@color/primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="8dp"/>
+
+                <RadioGroup
+                    android:id="@+id/goalTypeRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/radio_group_background"
+                    android:padding="4dp">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioLoseWeight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/weight_goal_lose"
+                        android:textColor="@color/gender_text_selector"
+                        android:drawableTop="@drawable/ic_goal"
+                        android:drawableTint="@color/gender_text_selector"
+                        android:drawablePadding="8dp"
+                        android:button="@null"
+                        android:background="@drawable/gender_selector"
+                        android:gravity="center"
+                        android:paddingVertical="12dp"
+                        android:layout_margin="4dp"
+                        app:buttonTint="@color/primary" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gender_tab_separator"
+                        android:layout_marginVertical="8dp" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioMaintainWeight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/weight_goal_maintain"
+                        android:textColor="@color/gender_text_selector"
+                        android:drawableTop="@drawable/ic_goal"
+                        android:drawableTint="@color/gender_text_selector"
+                        android:drawablePadding="8dp"
+                        android:button="@null"
+                        android:background="@drawable/gender_selector"
+                        android:gravity="center"
+                        android:paddingVertical="12dp"
+                        android:layout_margin="4dp"
+                        app:buttonTint="@color/primary" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gender_tab_separator"
+                        android:layout_marginVertical="8dp" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/radioGainWeight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/weight_goal_gain"
+                        android:textColor="@color/gender_text_selector"
+                        android:drawableTop="@drawable/ic_goal"
+                        android:drawableTint="@color/gender_text_selector"
+                        android:drawablePadding="8dp"
+                        android:button="@null"
+                        android:background="@drawable/gender_selector"
+                        android:gravity="center"
+                        android:paddingVertical="12dp"
+                        android:layout_margin="4dp"
+                        app:buttonTint="@color/primary" />
+                </RadioGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveProfileButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/button_save"
+                    android:textColor="@color/onboarding_button_text"
+                    android:backgroundTint="@color/healthy_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:padding="14dp"
+                    app:cornerRadius="16dp"
+                    app:elevation="4dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/privacyNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginHorizontal="@dimen/spacing_xlarge"
+            android:gravity="center"
+            android:text="Your data is stored locally and never shared"
+            android:textColor="@color/onboarding_text_body"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintTop_toBottomOf="@id/profileCard" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView> 

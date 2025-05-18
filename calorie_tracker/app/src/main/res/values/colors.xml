@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base app colors - Fixed regardless of theme -->
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="primary_very_light">#E8F5E9</color>
+    <color name="accent">#FF5722</color>
+    <color name="background">#F5F5F5</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="ripple_color">#33000000</color>
+    
+    <!-- Text colors - Fixed regardless of theme -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="divider">#EEEEEE</color>
+    
+    <!-- Status colors -->
+    <color name="healthy_green">#4CAF50</color>
+    <color name="warning_yellow">#FFC107</color>
+    <color name="danger_red">#F44336</color>
+    
+    <!-- Toast colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#F44336</color>
+    <color name="warning">#FFC107</color>
+    <color name="info">#2196F3</color>
+    
+    <!-- Basic colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#9E9E9E</color>
+    
+    <!-- Meal type colors -->
+    <color name="breakfast">@color/primary</color>
+    <color name="lunch">@color/primary</color>
+    <color name="dinner">@color/primary</color>
+    <color name="snack">@color/primary</color>
+    
+    <!-- Progress colors -->
+    <color name="progress_background">#E0E0E0</color>
+    <color name="progress_good">#48CFAD</color>
+    <color name="progress_warning">#FFCE54</color>
+    <color name="progress_excess">#ED5565</color>
+    
+    <!-- Date Picker Colors -->
+    <color name="calendar_selected_day_background">@color/primary</color>
+    <color name="calendar_selected_day_text">@color/white</color>
+    <color name="calendar_selected_range_bg">@color/primary_light</color>
+    <color name="calendar_normal_day_text">@color/text_primary</color>
+    <color name="calendar_header_background">@color/primary</color>
+    <color name="calendar_header_text">@color/white</color>
+    
+    <!-- Onboarding colors -->
+    <color name="onboarding_background">#EEF2F7</color>
+    <color name="onboarding_card">#FFFFFF</color>
+    <color name="onboarding_button">#5D9CEC</color>
+    <color name="onboarding_button_text">#FFFFFF</color>
+    <color name="onboarding_text_headline">#2C3E50</color>
+    <color name="onboarding_text_body">#7F8C8D</color>
+    
+    <!-- Category Chip Colors -->
+    <color name="chip_selected_background">@color/primary</color>
+    <color name="chip_unselected_background">@color/white</color>
+    <color name="chip_selected_text">@color/white</color>
+    <color name="chip_unselected_text">@color/text_primary</color>
+    <color name="chip_selected_icon">@color/white</color>
+    <color name="chip_unselected_icon">@color/primary</color>
+    
+    <!-- Category Colors -->
+    <color name="category_all">#4CAF50</color>
+    <color name="category_fruits">#FF9800</color>
+    <color name="category_vegetables">#66BB6A</color>
+    <color name="category_proteins">#F44336</color>
+    <color name="category_grains">#FFC107</color>
+    <color name="category_dairy">#2196F3</color>
+</resources>

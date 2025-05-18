@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activity_levels">
+        <item>@string/activity_sedentary</item>
+        <item>@string/activity_light</item>
+        <item>@string/activity_moderate</item>
+        <item>@string/activity_very</item>
+        <item>@string/activity_extra</item>
+    </string-array>
+</resources> 
