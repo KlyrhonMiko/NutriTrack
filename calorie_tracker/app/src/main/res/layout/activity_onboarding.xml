@@ -429,6 +429,17 @@
                     app:cornerRadius="16dp"
                     app:elevation="4dp" />
 
+                <TextView
+                    android:id="@+id/copyrightTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:text="© 2025 NutriTrack\nDeveloped by Ippei B. Goto &amp; Joshua P. Talato"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:alpha="0.7" />
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

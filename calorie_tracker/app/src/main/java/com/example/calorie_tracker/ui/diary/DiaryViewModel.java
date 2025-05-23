@@ -253,8 +253,11 @@ public class DiaryViewModel extends AndroidViewModel {
     public LiveData<Integer> getRemainingCalories() {
         return Transformations.switchMap(dailyCalorieGoal, goal -> 
                 Transformations.map(totalCaloriesForSelectedDate, consumed -> {
-                    if (goal == null || consumed == null) {
+                    if (goal == null) {
                         return 0;
+                    }
+                    if (consumed == null) {
+                        return goal;  // Return full goal when no calories consumed
                     }
                     return goal - consumed;
                 })

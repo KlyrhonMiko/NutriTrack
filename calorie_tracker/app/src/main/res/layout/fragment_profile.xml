@@ -345,7 +345,7 @@
             android:id="@+id/healthMetricsCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
@@ -539,6 +539,21 @@
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <!-- Copyright Information -->
+        <TextView
+            android:id="@+id/copyrightTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="© 2025 NutriTrack\nDeveloped by Ippei B. Goto &amp; Joshua P. Talato"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:alpha="0.7"
+            app:layout_constraintTop_toBottomOf="@id/healthMetricsCard"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView> 

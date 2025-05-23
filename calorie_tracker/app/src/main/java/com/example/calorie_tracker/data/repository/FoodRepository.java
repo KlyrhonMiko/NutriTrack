@@ -27,38 +27,28 @@ public class FoodRepository {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             Food food = convertToFood(foodItem);
             long id = foodDao.insert(food);
-            // Set the ID back on the item
             foodItem.setId(id);
         });
     }
-
-    /**
-     * Insert a food item and block until completed
-     * @param foodItem The food item to insert
-     * @return The database ID of the inserted item
-     */
     public long insertSync(FoodItem foodItem) {
-        // Create a CompletableFuture to wait for the result
         CompletableFuture<Long> future = new CompletableFuture<>();
-        
+
         AppDatabase.databaseWriteExecutor.execute(() -> {
             try {
                 Food food = convertToFood(foodItem);
                 long id = foodDao.insert(food);
-                // Set the ID back on the item
                 foodItem.setId(id);
                 future.complete(id);
             } catch (Exception e) {
                 future.completeExceptionally(e);
             }
         });
-        
+
         try {
-            // Wait for the insertion to complete and return the ID
             return future.get();
         } catch (Exception e) {
             e.printStackTrace();
-            return -1; // Return -1 to indicate failure
+            return -1;
         }
     }
 
@@ -70,77 +60,57 @@ public class FoodRepository {
         });
     }
 
-    /**
-     * Delete a food item from the database by its ID
-     * @param foodId ID of the food item to delete
-     */
     public void delete(long foodId) {
-        // Queue up deletion on a background thread
         AppDatabase.databaseWriteExecutor.execute(() -> {
             try {
-                // Log the deletion attempt
                 System.out.println("DELETION: Starting food deletion process for ID: " + foodId);
-                
-                // Step 1: Attempt all normal deletion approaches
+
                 boolean deletionSuccessful = false;
-                
+
                 try {
-                    // First try hard delete method
                     foodDao.hardDeleteById(foodId);
-                    
-                    // Update sequence tables
+
                     foodDao.updateFoodSequence();
-                    
-                    // Also try standard methods as fallbacks
+
                     foodDao.deleteById(foodId);
                     int rowsDeleted = foodDao.forceDeleteById(foodId);
-                    
+
                     System.out.println("DELETION: Initial deletion attempts completed, rows deleted: " + rowsDeleted);
-                    
-                    // Create a minimal Food object with just the ID for entity-based deletion as last resort
+
                     Food food = new Food("", "", 0, 0, 0, 0, 0, 0, 0);
                     food.setId(foodId);
             foodDao.delete(food);
                 } catch (Exception e) {
                     System.err.println("DELETION: Error in initial deletion attempts: " + e.getMessage());
                 }
-                
-                // Step 2: Verify if food was actually deleted
+
                 int exists = foodDao.checkIfFoodExists(foodId);
                 System.out.println("DELETION: Verification - ID: " + foodId + " - Still exists: " + (exists > 0));
-                
-                // Step 3: If food still exists, try more aggressive deletion
+
                 if (exists > 0) {
                     System.out.println("DELETION: Food still exists! Trying aggressive methods...");
-                    
+
                     try {
-                        // Try more forceful deletion with direct SQL
                         foodDao.forceDeleteById(foodId);
                     } catch (Exception e) {
                         System.err.println("DELETION: Error in aggressive deletion: " + e.getMessage());
                     }
-                    
-                    // Sleep briefly to allow database changes to settle
+
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException ie) {
-                        // Ignore
                     }
-                    
-                    // Check again after aggressive deletion
+
                     exists = foodDao.checkIfFoodExists(foodId);
                     System.out.println("DELETION: After aggressive deletion - ID: " + foodId + " - Still exists: " + (exists > 0));
-                    
-                    // Step 4: Final attempt with direct SQL execution if still exists
+
                     if (exists > 0) {
                         try {
-                            // Direct SQL execution through AppDatabase
                             AppDatabase db = AppDatabase.getDatabase(null);
                             db.getOpenHelper().getWritableDatabase()
                                 .execSQL("DELETE FROM foods WHERE id = ?", new Object[]{foodId});
                             System.out.println("DELETION: Performed direct SQL DELETE as last resort");
-                            
-                            // Verify again
+
                             exists = foodDao.checkIfFoodExists(foodId);
                             deletionSuccessful = (exists == 0);
                         } catch (Exception e) {
@@ -152,14 +122,12 @@ public class FoodRepository {
                 } else {
                     deletionSuccessful = true;
                 }
-                
-                // Step 5: Database maintenance if deletion was successful
+
                 if (deletionSuccessful) {
                     System.out.println("DELETION: Successfully deleted food item #" + foodId);
-                    
-                    // Reset sequence if needed
+
                     try {
-                        int totalFoods = foodDao.countTotalFoods(); 
+                        int totalFoods = foodDao.countTotalFoods();
                         if (totalFoods == 0) {
                             foodDao.resetFoodSequence();
                             System.out.println("DELETION: Reset food sequence after deletion");
@@ -171,18 +139,11 @@ public class FoodRepository {
                     System.err.println("DELETION: WARNING - Failed to delete food item #" + foodId + " after multiple attempts!");
                 }
             } catch (Exception e) {
-                // Log any errors that might occur
                 System.err.println("DELETION: Critical error deleting food item: " + e.getMessage());
                 e.printStackTrace();
             }
         });
     }
-
-    /**
-     * Note: Database optimization through VACUUM or PRAGMA commands
-     * is not directly supported by Room's @Query annotation.
-     * These would require the use of SupportSQLiteDatabase directly.
-     */
 
     public void setFavorite(long foodId, boolean isFavorite) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
@@ -208,40 +169,29 @@ public class FoodRepository {
         });
     }
 
-    /**
-     * Create a Food entity from a FoodItem and save it to the database
-     * This is useful when working with temporary FoodItem objects that need to be persisted
-     * @param foodItem The FoodItem to convert
-     * @param callback Callback with the newly created food ID
-     */
     public void createFoodFromFoodItem(FoodItem foodItem, FoodViewModel.FoodCreatedCallback callback) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             try {
-                // Convert FoodItem to Food entity
                 Food food = new Food(
                     foodItem.getName(),
                     foodItem.getBrand(),
                     foodItem.getCalories(),
-                    100f, // Default serving size in grams
+                    100f,
                     (float)foodItem.getProtein(),
                     (float)foodItem.getCarbs(),
                     (float)foodItem.getFat(),
-                    0f, // Default fiber
-                    0f  // Default sugar
+                    0f,
+                    0f
                 );
-                
-                // Set favorite and recipe status
+
                 food.setFavorite(foodItem.isFavorite());
                 food.setRecipe(foodItem.isRecipe());
-                
-                // Insert into database and get the generated ID
+
                 long id = foodDao.insert(food);
-                
-                // Log the creation for debugging
-                System.out.println("Created new Food entity with ID: " + id + 
+
+                System.out.println("Created new Food entity with ID: " + id +
                                   ", Name: " + food.getName());
-                
-                // Execute callback on the main thread
+
                 AppDatabase.getDatabase(null).getQueryExecutor().execute(() -> {
                     callback.onFoodCreated(id);
                 });
@@ -251,7 +201,7 @@ public class FoodRepository {
             }
         });
     }
-    
+
     public LiveData<List<FoodItem>> getRecipes() {
         return Transformations.map(foodDao.getRecipes(), this::convertToFoodItems);
     }
@@ -266,17 +216,16 @@ public class FoodRepository {
             FoodItem item = new FoodItem(
                     food.getName(),
                     food.getBrand(),
-                    "Other", // Food entity doesn't have category, defaulting to "Other"
+                    "Other",
                     food.getServingSize() + "g",
                     food.getCalories(),
                     food.getProtein(),
                     food.getCarbs(),
                     food.getFat(),
                     food.isFavorite(),
-                    true,  // All foods from DB are considered user-created for this app
-                    food.isRecipe() // Set the recipe flag from the Food entity
+                    true,
+                    food.isRecipe()
             );
-            // Set the ID from the database entity to ensure it matches
             item.setId(food.getId());
             foodItems.add(item);
         }
@@ -284,13 +233,11 @@ public class FoodRepository {
     }
 
     private Food convertToFood(FoodItem item) {
-        // Parse the serving string to get the numeric value
         String servingStr = item.getServing().replaceAll("[^\\d.]", "");
-        float servingSize = 100f; // Default value
+        float servingSize = 100f;
         try {
             servingSize = Float.parseFloat(servingStr);
         } catch (NumberFormatException e) {
-            // Use default value if parsing fails
         }
 
         Food food = new Food(
@@ -312,7 +259,7 @@ public class FoodRepository {
     public LiveData<List<Food>> getAllFoodEntities() {
         return foodDao.getAllFoods();
     }
-    
+
     public LiveData<List<Food>> searchFoodsByName(String query) {
         return foodDao.searchFoods("%" + query + "%");
     }
@@ -320,4 +267,4 @@ public class FoodRepository {
     public LiveData<List<FoodItem>> getAllFoodItems() {
         return Transformations.map(foodDao.getAllFoods(), this::convertToFoodItems);
     }
-} 
+}
